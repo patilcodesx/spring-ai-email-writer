@@ -25,9 +25,19 @@ This project is an **AI-based email generator**, built with:
 
 ---
 
+## 🖼️ Additional Visuals
+
+![Browser Extension](https://i.postimg.cc/Y0yFk1Kw/Screenshot-2025-08-07-032502.png)  
+*Browser extension*
+
+![AI Reply](https://i.postimg.cc/wTyyLRY7/Screenshot-2025-08-07-033115.png)  
+*AI-powered reply*
+
+
 ## 🚀 How to Run
 
 ### ⚙️ Backend (Spring Boot)
 ```bash
 mvn spring-boot:run
+
 
