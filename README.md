@@ -1,48 +1,49 @@
-✉️ AI-Powered Email Writer
+# 📨 AI-Powered Email Writer  
+### 🚀 Spring Boot + React + Chrome Extension (MV3)
 
-Spring Boot + React + Chrome Extension (MV3)
+An AI-based email assistant that helps you draft smart replies directly from a **web UI** or a **browser extension**.
 
-An AI-based email assistant that helps you draft smart replies directly from a web UI or a browser extension.
+It integrates **Spring Boot 3**, **React 18**, and a **Chrome Extension (MV3)** with AI models like **OpenAI / Gemini**.
 
-It integrates Spring Boot 3, React, and Chrome Extension MV3 with AI APIs (OpenAI / Gemini).
+---
 
-🧠 Tech Stack
-⚙️ Backend (API – Spring Boot)
+## 🧠 Tech Stack Overview
 
+### ⚙️ Backend — **Spring Boot API**
+```
 Java 17+
-
 Spring Boot 3
-
 Spring Web
-
 Spring AI (OpenAI / Gemini)
-
 Maven
+```
 
-⚛️ Frontend (React App)
-
+### 🎨 Frontend — **React App**
+```
 React 18
-
-JavaScript/TypeScript
-
+JavaScript / TypeScript
 Axios / Fetch API
+Vite (recommended)
+```
 
-🧩 Browser Extension (MV3)
-
+### 🧩 Browser Extension — **MV3**
+```
 Chrome Extension Manifest V3
+HTML / CSS / JS
+React Popup UI
+```
 
-HTML/CSS/JS
+---
 
-React-based popup (optional)
-
-📦 Project Structure
+## 📦 Project Structure
+```
 .
 ├── src/                     # Spring Boot backend
 │   ├── main/
-│   │   ├── java/...         # controllers, services, configs
+│   │   ├── java/...         # controllers, services, config
 │   │   └── resources/
 │   │       ├── application.yml
-│   │       └── templates/   # if any
+│   │       └── templates/
 │   └── test/
 │
 ├── email-writer-react/      # React frontend
@@ -52,129 +53,126 @@ React-based popup (optional)
 │
 ├── email-writer-ext/        # Chrome extension (MV3)
 │   ├── manifest.json
-│   ├── icons/
-│   └── src/
+│   ├── src/
+│   └── ...
 │
-├── pom.xml                  # Maven config
+├── pom.xml
 └── README.md
+```
 
-✨ Features
+---
 
-🤖 AI-generated email replies
+## ✨ Features
 
-🔌 REST API for integration
+- 🤖 **AI-powered email generation**
+- 🎯 Use via **REST API**, **React UI**, or **Chrome Extension**
+- 🔐 Secure API access using keys
+- 🧩 Modular architecture
+- ⚡ Fast development with Vite + Spring Boot DevTools
 
-🖥️ React web UI
+---
 
-🧭 Chrome extension for Gmail, Outlook, etc.
+## 🔧 Requirements
 
-🔐 API key based access
+Before running, install:
 
-📦 Modular: frontend + backend + extension
+- ☕ Java 17+
+- 🧰 Maven 3+
+- 🟦 Node.js 18+ + npm/yarn
+- 🌐 Chrome Browser
+- 🔑 API Key from OpenAI/Gemini
 
-🔧 Prerequisites
+---
 
-Install these before running:
+## 🔐 Configuration
 
-☕ Java 17+
+Edit `application.properties`:
 
-🧰 Maven 3+
-
-🟦 Node.js 18+ and npm/yarn
-
-🌐 Google Chrome / Chromium
-
-🔑 API Key: OpenAI / Gemini
-
-🔐 Configuration
-
-Set your AI API key in backend config file:
-
-src/main/resources/application.properties
-
+```
 ai.api.key=YOUR_API_KEY
-ai.api.base-url=https://api.openai.com/v1
+ai.api.url=https://api.openai.com/v1
+```
 
+Recommended — **environment variables**:
 
-Or using environment variables (recommended):
+```
+export AI_API_KEY=YOUR_API_KEY
+export AI_API_URL=https://api.openai.com/v1
+```
 
-export AI_API_KEY=YOUR_API_KEY_HERE
-export AI_API_BASE_URL=https://api.openai.com/v1
+---
 
-🚀 How to Run
-1️⃣ Start Backend (Spring Boot)
+## 🚀 Run the Project
 
-From project root:
+### 1️⃣ Start Backend (Spring Boot)
 
+```
 mvn spring-boot:run
+```
 
+Backend URL:
 
-Runs at:
-
+```
 http://localhost:8080
+```
 
-2️⃣ Start Frontend (React App)
+---
 
-From project root:
+### 2️⃣ Start Frontend (React UI)
 
+```
 cd email-writer-react
 npm install
 npm run dev
+```
 
+Web UI:
 
-Opens at:
-
+```
 http://localhost:3000
+```
 
+Check `.env`:
 
-Configure API URL in .env:
-
-For Vite:
-
+```
 VITE_API_BASE_URL=http://localhost:8080
+```
 
+---
 
-For CRA:
+### 3️⃣ Load Chrome Extension
 
-REACT_APP_API_BASE_URL=http://localhost:8080
+- Open Chrome
+- Go to: `chrome://extensions/`
+- Enable **Developer mode**
+- Click **Load unpacked**
+- Select: `email-writer-ext` (or `dist` folder)
 
-3️⃣ Load Chrome Extension
+---
 
-Open Chrome
-chrome://extensions/
+## 📡 API Example
 
-Turn on Developer mode
+**POST** `/api/v1/email/generate`
 
-Click Load unpacked
+Request Body:
 
-Select the folder:
-
-email-writer-ext
-
-
-(or dist if using bundler)
-
-Extension icon will appear in toolbar
-
-Make sure extension API URL = http://localhost:8080
-
-📡 Example API Request
-
-POST /api/v1/email/generate
-
-Request body:
-
+```json
 {
-  "prompt": "Reply politely and ask for more details.",
-  "context": "Client is asking about pricing."
+  "prompt": "Reply politely with more details.",
+  "context": "Client asked about pricing."
 }
+```
 
+Response:
 
-Example response:
-
+```json
 {
   "generatedEmail": "Hi, thanks for reaching out..."
 }
+```
+
+---
+
 
 ## 🖼️ Additional Visuals
 
@@ -185,41 +183,19 @@ Example response:
 *AI-powered reply*
 
 
-🧪 Testing
 
-Backend tests:
+## 🧪 Testing
 
+Backend:
+```
 mvn test
+```
 
-
-Frontend tests:
-
+Frontend:
+```
 cd email-writer-react
 npm test
+```
 
-🛣️ Roadmap
 
- Support multiple AI providers
-
- Email history storage
-
- OAuth login
-
- Email templates (HR, support, sales)
-
- Export email to PDF
-
-🤝 Contributing
-
-Fork this repo
-
-Create a branch feature/xyz
-
-Commit changes
-
-Open PR
-
-📄 License
-
-MIT License (or your choice)
 
